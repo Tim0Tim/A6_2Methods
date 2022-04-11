@@ -4,51 +4,47 @@ namespace A6_2Methods
 {
     class Program
     {
-        public double ce;
-        public double f;
-        public static double Main()
+        private static void Main()
         {
             var calc = new Program();
             double ce;
             double f;
             int T;
-            double num = 32;
-            Console.WriteLine("Do you want to convert Celsius to Fahrenheit(1) \n--or--\n Convert Fahrenheit to Celsius(2)");
+            int num = 32;
+            Console.WriteLine("Do you want to convert C° to F°(1)\n --or--\nConvert F° to C°(2)");
             T = int.Parse(Console.ReadLine());
 
 
             if (T == 1)
             {
-                Console.WriteLine("What is the Fahrenheit value?");
+                Console.WriteLine("What is the F° value?");
                 f = double.Parse(Console.ReadLine());
                 Console.WriteLine("The Value is:");
-                return calc.Cel(f,num);
-                Console.Write(" °C");
+                Console.Write($"{calc.Cel(f,num)}°C");
             }
             else if(T == 2)
             {
-                Console.WriteLine("What is the Celcius value?");
+                Console.WriteLine("What is the C° value?");
                 ce = double.Parse(Console.ReadLine());
                 Console.WriteLine("the Value is:");
-                return calc.Fa(ce,num);
-                Console.Write(" °F");
+                Console.WriteLine($" {calc.Fa(ce,num)}°F");
             }
             else
             {
                 Console.WriteLine("Invalid input");
-                return null;
             }
         }
 
-        public double Cel(double f, double num)
+        public double Cel(double f, int num)
         {
          return 5.0/9.0 * f - num;
         
         }
         
-        public double Fa(double ce, double num)
+        public int Fa(double ce, int num)
         {
-            return 9.0 / 5.0 * ce + num;
+           double A1 = 9.0 / 5.0 * ce + num;
+            return Convert.ToInt32(A1);
         }
     }
 }
